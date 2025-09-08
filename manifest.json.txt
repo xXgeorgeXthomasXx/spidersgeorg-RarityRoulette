@@ -1,6 +1,7 @@
 {
     "name": "RarityRoulette",
     "version_number": "1.0.0",
+    "website_url": "https://github.com/thunderstore-io",
     "description": "Try your luck!! Imagine Russian roulette, except instead of walking away, you get a chance at spawning in-biome loot! A N Y in-biome loot...",
     "dependencies": [
         "BepInEx-BepInExPack_PEAK-5.4.75301",
