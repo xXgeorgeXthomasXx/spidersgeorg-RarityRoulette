@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using UnityEngine.TextCore.Text;
 
 namespace LastResort.Patches
 {
@@ -9,7 +10,8 @@ namespace LastResort.Patches
         [HarmonyPrefix]
         private static bool RevolverDoUsing(CharacterItems __instance)
         {
-            if ((bool)__instance.character.data.currentItem && !__instance.character.data.passedOut && !__instance.character.data.fullyPassedOut)
+
+           if ((bool)__instance.character.data.currentItem && !__instance.character.data.passedOut && !__instance.character.data.fullyPassedOut)
             {
                 if (__instance.character.input.usePrimaryWasPressed && __instance.character.data.currentItem.CanUsePrimary())
                 {
@@ -58,14 +60,21 @@ namespace LastResort.Patches
                         __instance.character.data.currentItem.CancelUseSecondary();
                     }
                 }
-
-                if (__instance.character.input.scrollButtonLeftWasPressed)
+                if (__instance.character.input.scrollBackwardWasPressed)
                 {
-                    __instance.character.data.currentItem.ScrollButtonLeft();
+                    __instance.character.data.currentItem.ScrollButtonBackwardPressed();
                 }
-                if (__instance.character.input.scrollButtonRightWasPressed)
+                if (__instance.character.input.scrollForwardWasPressed)
                 {
-                    __instance.character.data.currentItem.ScrollButtonRight();
+                    __instance.character.data.currentItem.ScrollButtonForwardPressed();
+                }
+                if (__instance.character.input.scrollBackwardIsPressed)
+                {
+                    __instance.character.data.currentItem.ScrollButtonBackwardHeld();
+                }
+                if (__instance.character.input.scrollForwardIsPressed)
+                {
+                    __instance.character.data.currentItem.ScrollButtonForwardHeld();
                 }
                 if (__instance.character.input.scrollInput != 0f)
                 {
