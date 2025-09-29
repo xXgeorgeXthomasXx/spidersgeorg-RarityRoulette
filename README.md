@@ -21,7 +21,7 @@ BepInEx/config/spidersgeorg-RarityRoulette.cfg
 
 | Setting               | Description                                             | Default |
 |------------------------|---------------------------------------------------------|---------|
-| `Max Shots` | The maximum number of shots the revolver can randomly have            | `2` |
+| `Max Shots` | The maximum number of shots the revolver can randomly have            | `4` |
 
 ---
 

@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0] - 2025-09-29
+
+- It has been brought to my attention that this mod was broken AF, i'm so sorry... A patch has been put into place for the time being so the mod should work as it did before!! While we await the next patch to the game that may or may not break it again, I will be in search for a better solution to my troubles... to OUR troubles
+
+## [1.4.0] - 2025-09-12
+
+- Removed the remaining item use bar from above the item icon since you're intended to gamble on how many shots you have left too 😉
+
+## [1.3.0] - 2025-09-9
+
+- Hi i'm sorry I changed the default max shots to 4 please don't hate me
+
 ## [1.2.0] - 2025-09-9
 
 - Fixed a silly little bug where the revolvers acted as blowguns when used side by side with the PEAK Blow Darts mod after a shot or two!
