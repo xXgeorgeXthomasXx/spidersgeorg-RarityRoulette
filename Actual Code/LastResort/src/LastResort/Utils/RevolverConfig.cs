@@ -10,7 +10,7 @@ namespace LastResort.Utils
         public static ConfigEntry<int> maxRevolverShots;
 
         public static void AllRevolverConfigs(ConfigFile revolverConfigFile) { 
-            maxRevolverShots = revolverConfigFile.Bind<int>("Revolver", "Max Shots", 2, "The maximum number of shots a revolver can have.");
+            maxRevolverShots = revolverConfigFile.Bind<int>("Revolver", "Max Shots", 4, "The maximum number of shots a revolver can have.");
         }
     }
 }

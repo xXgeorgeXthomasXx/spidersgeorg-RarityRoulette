@@ -6,6 +6,7 @@ using UnityEngine;
 using Photon.Pun;
 using static CharacterAfflictions;
 using Zorro.Core;
+using LastResort.Utils;
 
 public class Action_Revolver_Self : ItemAction
 {
@@ -65,7 +66,6 @@ public class Action_Revolver_Self : ItemAction
             },
             {BiomeType.Volcano,
                 [
-                    SpawnPool.Nest,
                     SpawnPool.LuggageCaldera,
                     SpawnPool.LuggageAncient,
                     SpawnPool.LuggageCursed,
@@ -79,7 +79,6 @@ public class Action_Revolver_Self : ItemAction
     public void Start()
     {
         revolver = base.GetComponent<Revolver>();
-
     }
 
     public override void RunAction()

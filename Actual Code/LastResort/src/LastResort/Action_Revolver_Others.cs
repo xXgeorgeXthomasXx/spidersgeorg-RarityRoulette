@@ -7,6 +7,7 @@ using UnityEngine;
 using Photon.Pun;
 using static CharacterAfflictions;
 using Zorro.Core;
+using LastResort.Utils;
 
 internal class Action_Revolver_Others : ItemAction
 {
@@ -73,7 +74,6 @@ internal class Action_Revolver_Others : ItemAction
             },
             {BiomeType.Volcano,
                 [
-                    SpawnPool.Nest,
                     SpawnPool.LuggageCaldera,
                     SpawnPool.LuggageAncient,
                     SpawnPool.LuggageCursed,

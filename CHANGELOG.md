@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.0] - 2025-11-16
+- THE ONE WITH THE EGGS
+- HI SORRY FOR THE WAIT EGGS ARE BACK!!! I fixed my local files and have removed the nest as a spawn point for the revolves so you shall hunger no longer in that biome 🙂‍↕️ Thank you everyone for you continued feedback and usage of the mod!! If you have any questions or problems please reach out to me on discord!!
+
+## [1.6.0] - 2025-11-16
+
+- Im a sham of a developer and it broke AGAIN I'm so sorry 😿 I think it works again though!! It was also brought to my attention that having the revolver spawn into nests as a gag wasn't the best idea since eggs are a great food source in that biome! Unfortunately, my unity project is super borked so this will have to be slated until the next release, but it is coming up soon!
+
 ## [1.5.0] - 2025-09-29
 
 - It has been brought to my attention that this mod was broken AF, i'm so sorry... A patch has been put into place for the time being so the mod should work as it did before!! While we await the next patch to the game that may or may not break it again, I will be in search for a better solution to my troubles... to OUR troubles
