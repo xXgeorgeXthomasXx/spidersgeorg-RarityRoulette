@@ -186,7 +186,7 @@ internal class Action_Revolver_Others : ItemAction
             Logger.LogInfo("RPC_RevolverImpactOthers called with hitPlayer: " + itemToSpawnName2);
             if (itemToSpawnName2 == "YouLose")
             {
-                Character.localCharacter.refs.afflictions.AddStatus(STATUSTYPE.Injury, 0.5f);
+                Character.localCharacter.refs.afflictions.AddStatus(STATUSTYPE.Injury, RevolverConfig.revolverDamage.Value);
                 Character.localCharacter.GetComponent<RevolverBlowbackWatcher>().ShootSelfT(0.25f, Character.localCharacter, Camera.main.transform.forward);
                 GamefeelHandler.instance.AddPerlinShakeProximity(endpoint, 5f);
             }

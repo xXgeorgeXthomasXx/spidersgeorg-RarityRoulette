@@ -1,8 +1,9 @@
 # Changelog
 
-## [1.7.0] - 2025-11-16
-- THE ONE WITH THE EGGS
-- HI SORRY FOR THE WAIT EGGS ARE BACK!!! I fixed my local files and have removed the nest as a spawn point for the revolves so you shall hunger no longer in that biome 🙂‍↕️ Thank you everyone for you continued feedback and usage of the mod!! If you have any questions or problems please reach out to me on discord!!
+## [1.7.0] - 2025-11-21
+
+- AYOO Revolvers don't spawn in the birds nests anymore!! If further spawn control is desired, [Tony](https://thunderstore.io/c/peak/p/tony4twenty/) was kind enough to integrate the revolver into his [Peak Luggage Items Mod](https://thunderstore.io/c/peak/p/tony4twenty/PEAK_Luggage_Items/), so if you want further customization of spawnrates/locations, go check it out 😄 !
+- ALSO you can now control the damage of the revolver! It keeps the original 50% damage value if you haven't changed the value in the config, OR, you can increase or decrease the damage as you please! Please keep the value a number between 0.0 to 1.0 for the mod to work correctly! (Example, 1.0 for 100% damage, 0.54 for 54% damage, etc)((Also if you haven't run the game after downloading this version, I think you have to run it once for the value to actually show up in your config if i remember right!)) I highly recommend everyone in your party sets it to the same value as I have not tested different values between different player! (If you do....good luck to you)
 
 ## [1.6.0] - 2025-11-16
 
