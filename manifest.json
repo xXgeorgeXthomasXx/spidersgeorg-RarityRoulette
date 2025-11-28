@@ -2,7 +2,7 @@
   "namespace": "spidersgeorg",
   "name": "RarityRoulette",
   "description": "Try your luck!! Imagine Russian roulette, except instead of walking away, you get a chance at spawning in-biome loot! A N Y in-biome loot...",
-  "version_number": "1.7.0",
+  "version_number": "1.8.0",
   "dependencies": [
     "BepInEx-BepInExPack_PEAK-5.4.75301",
 	"PEAKModding-PEAKLib_Items-1.5.3",

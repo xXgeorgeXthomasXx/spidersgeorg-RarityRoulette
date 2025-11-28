@@ -32,6 +32,7 @@ public partial class Plugin : BaseUnityPlugin
 
     //internal static SFX_Instance shotSFX;
     internal static Dictionary<string, SFX_Instance> SFXInstances = new Dictionary<string, SFX_Instance>();
+    internal static List<SFX_Instance> bonk = new List<SFX_Instance>();
 
     private void Awake()
     {
@@ -49,6 +50,7 @@ public partial class Plugin : BaseUnityPlugin
                     var selfAction = RevolverPrefab.AddComponent<Action_Revolver_Self>();
                     var otherAction = RevolverPrefab.AddComponent<Action_Revolver_Others>();
                     otherAction.OnCastFinished = true;
+                    var revBonky = RevolverPrefab.AddComponent<RevolverBonkable>();
 
                 }
             );
@@ -65,11 +67,12 @@ public partial class Plugin : BaseUnityPlugin
         Harmony val = new Harmony(Name ?? "");
         val.PatchAll();
         LoadCustomAudio();
+        LoadBonkAudio();
 
     }
     private void LoadCustomAudio()
     {
-        string directoryName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        string directoryName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "RevolverSounds");
         string[] files = Directory.GetFiles(directoryName, "*.ogg");
         if (files.Length == 0)
         {
@@ -81,6 +84,42 @@ public partial class Plugin : BaseUnityPlugin
         }
     }
 
+    private void LoadBonkAudio()
+    {
+        string directoryName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "RevolverBonkSounds");
+        string[] files = Directory.GetFiles(directoryName, "*.ogg");
+        if (files.Length == 0)
+        {
+            //Logger.LogWarning((object)"No .ogg file found.");
+            return;
+        }
+        foreach (string fileName in files)
+        {
+            ((MonoBehaviour)this).StartCoroutine(LoadBonkAudio(fileName));
+        }
+    }
+
+    private IEnumerator LoadBonkAudio(string fileName)
+    {
+        string url = "file://" + fileName;
+        using UnityWebRequest webRequest = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.OGGVORBIS);
+        yield return webRequest.SendWebRequest();
+        if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
+        {
+            //Logger.LogInfo((object)("Failed to load .ogg file: " + webRequest.error));
+            yield break;
+        }
+        SFX_Instance shotSFX = ScriptableObject.CreateInstance<SFX_Instance>();
+        shotSFX.clips = new AudioClip[1] { DownloadHandlerAudioClip.GetContent(webRequest) };
+        shotSFX.settings = new SFX_Settings
+        {
+            volume = 1f,
+            range = 500f,
+            cooldown = 1f
+        };
+        //Logger.LogInfo("FILE NAME IS " + GetFileNameFromPath(fileName));
+        bonk.Add(shotSFX);
+    }
 
     private IEnumerator LoadAudio(string fileName)
     {

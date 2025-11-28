@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.8.0] - 2025-11-28
+
+- THE ONE WHERE YOU CAN BONK YOUR FRIENDS
+- IM FULL OF TURKEY AND WANTED TO BE PRODUCTIVE
+- Finished a revolver? Bonk a friend! Haven't finished a revolver? Bonk a friend! Just throw that thing!
+
 ## [1.7.0] - 2025-11-21
 
 - AYOO Revolvers don't spawn in the birds nests anymore!! If further spawn control is desired, [Tony](https://thunderstore.io/c/peak/p/tony4twenty/) was kind enough to integrate the revolver into his [Peak Luggage Items Mod](https://thunderstore.io/c/peak/p/tony4twenty/PEAK_Luggage_Items/), so if you want further customization of spawnrates/locations, go check it out 😄 !
