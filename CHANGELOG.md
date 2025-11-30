@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.9.0] - 2025-11-30
+
+- SORRY I BROKE IT AGAIN i have fixed the folder structure for the sounds so it should be back to working!
+
 ## [1.8.0] - 2025-11-28
 
 - THE ONE WHERE YOU CAN BONK YOUR FRIENDS
