@@ -121,7 +121,7 @@ internal class Action_Revolver_Others : ItemAction
                      if (revolver.shotsLeft <= 0)
                      {
                         Logger.LogInfo("The revolver is empty");
-                        Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Empty.ogg");
+                        Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Empty_revolversfx.ogg");
                      }else if ((rouletteNumber != 2 && rouletteNumber != 4) && revolver.shotsLeft > 0)
                      {
                         BiomeType currentBiome = Singleton<MapHandler>.Instance.GetCurrentBiome();
@@ -133,12 +133,12 @@ internal class Action_Revolver_Others : ItemAction
                         int chosenSpawnPoolIndex = UnityEngine.Random.Range(0, currentNumberOfSpawnPools);
                         SpawnPool chosenSpawnPool = currentSpawnPool[chosenSpawnPoolIndex];
                         Item itemToSpawn = FindItemToSpawnNotRevolver(chosenSpawnPool);//LootData.GetRandomItem(chosenSpawnPool).GetComponent<Item>();
-                        Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Winner.ogg");
+                        Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Winner_revolversfx.ogg");
                         RevolverImpactOthers(componentInParent, revolverSpawnTransform.position, raycastHit.point, itemToSpawn.name);
                      }else if ((rouletteNumber == 2 || rouletteNumber == 4) && (revolver.shotsLeft > 0))                    {
                         Logger.LogInfo("The player got hit with the YouLose effect");
                         revolver.useOnce();
-                        Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Revolver.ogg");
+                        Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Revolver_revolversfx.ogg");
                         RevolverImpactOthers(componentInParent, revolverSpawnTransform.position, raycastHit.point, "YouLose");
                      }
                      return;
@@ -147,10 +147,10 @@ internal class Action_Revolver_Others : ItemAction
         }
         if (revolver.shotsLeft > 0) {
             revolver.useOnce();
-            Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Revolver.ogg");
+            Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Revolver_revolversfx.ogg");
         }else
         {
-            Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Empty.ogg");
+            Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Empty_revolversfx.ogg");
         }
     }
 

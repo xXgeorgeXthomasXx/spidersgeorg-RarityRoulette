@@ -72,8 +72,8 @@ public partial class Plugin : BaseUnityPlugin
     }
     private void LoadCustomAudio()
     {
-        string directoryName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "RevolverSounds");
-        string[] files = Directory.GetFiles(directoryName, "*.ogg");
+        string directoryName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        string[] files = Directory.GetFiles(directoryName, "*_revolversfx.ogg");
         if (files.Length == 0)
         {
             Logger.LogWarning((object)"No .ogg file found.");
@@ -86,11 +86,11 @@ public partial class Plugin : BaseUnityPlugin
 
     private void LoadBonkAudio()
     {
-        string directoryName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "RevolverBonkSounds");
-        string[] files = Directory.GetFiles(directoryName, "*.ogg");
+        string directoryName = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        string[] files = Directory.GetFiles(directoryName, "*_bonksfx.ogg");
         if (files.Length == 0)
         {
-            //Logger.LogWarning((object)"No .ogg file found.");
+            Logger.LogWarning((object)"No .ogg file found.");
             return;
         }
         foreach (string fileName in files)
