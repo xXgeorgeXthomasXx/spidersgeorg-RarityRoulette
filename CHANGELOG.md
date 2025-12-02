@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.5.0] - 2025-12-02
+
+- 'TIS THE SEASON
+- (You have until the end of December)
+
 ## [2.0.0] - 2025-11-30
 
 - FIXED FOR REAL THIS TIME, i did not realize zipped file folders would all get removed to root, so the audio files didn't load and crashed everything, but i have changed my code up to read from root level now! Sorry and thank you for being patient with me!
