@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.6.0] - 2025-12-03
+
+- Added the ability to modify the blowback of hitting/getting hit with a shot from the revolver in the config!
+- Add some extra devastation to your treetop adventures...
+
 ## [2.5.0] - 2025-12-02
 
 - 'TIS THE SEASON

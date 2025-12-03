@@ -24,6 +24,7 @@ BepInEx/config/spidersgeorg-RarityRoulette.cfg
 |------------------------|---------------------------------------------------------|---------|
 | `Max Shots` | The maximum number of shots the revolver can randomly have            | `4` |
 | `Revolver Damage` | The amount of damage you/a friend takes upon an unsuccessful shot of the revolver. Make this a value somewhere between 0.0 for no damage, to 1.0 for maximum damage! | `0.5` |
+| `Revolver Blowback` | "How far back you/a friend goes flying upon an unsuccessful shot of the revolver. Make this a value somewhere between 0.0 for no blowback, to 1.0 for a lot of blowback! You can of course go higher, but beware it has not been tested" | `0.25` |
 
 
 ---

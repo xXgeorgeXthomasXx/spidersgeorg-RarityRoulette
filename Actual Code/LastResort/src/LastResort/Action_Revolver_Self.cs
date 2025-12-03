@@ -105,7 +105,7 @@ public class Action_Revolver_Self : ItemAction
             revolver.useOnce();
             Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Revolver_revolversfx.ogg");
             Character.localCharacter.refs.afflictions.AddStatus(STATUSTYPE.Injury, RevolverConfig.revolverDamage.Value);
-            Character.localCharacter.GetComponent<RevolverBlowbackWatcher>().ShootSelfT(0.25f, Character.localCharacter, Camera.main.transform.forward);
+            Character.localCharacter.GetComponent<RevolverBlowbackWatcher>().ShootSelfT(RevolverConfig.revolverBlowback.Value, Character.localCharacter, Camera.main.transform.forward);
             GamefeelHandler.instance.AddPerlinShakeProximity(Camera.main.transform.forward, 5f); 
         }
     }
