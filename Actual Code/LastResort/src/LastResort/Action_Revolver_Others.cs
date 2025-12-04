@@ -21,6 +21,8 @@ internal class Action_Revolver_Others : ItemAction
 
     public Revolver revolver;
 
+    public Animator anim;
+
     private RaycastHit revolverLineHit;
 
     private RaycastHit[] revolverSphereHits;
@@ -87,6 +89,7 @@ internal class Action_Revolver_Others : ItemAction
     public void Start()
     {
         revolver = base.GetComponent<Revolver>();
+        anim = revolver.GetComponent<Animator>();
 
     }
 
@@ -134,8 +137,11 @@ internal class Action_Revolver_Others : ItemAction
                         SpawnPool chosenSpawnPool = currentSpawnPool[chosenSpawnPoolIndex];
                         Item itemToSpawn = FindItemToSpawnNotRevolver(chosenSpawnPool);//LootData.GetRandomItem(chosenSpawnPool).GetComponent<Item>();
                         Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Winner_revolversfx.ogg");
+                        base.photonView.RPC("ToggleOpenOthersRPC", RpcTarget.All);
                         RevolverImpactOthers(componentInParent, revolverSpawnTransform.position, raycastHit.point, itemToSpawn.name);
-                     }else if ((rouletteNumber == 2 || rouletteNumber == 4) && (revolver.shotsLeft > 0))                    {
+
+                    }
+                    else if ((rouletteNumber == 2 || rouletteNumber == 4) && (revolver.shotsLeft > 0))                    {
                         Logger.LogInfo("The player got hit with the YouLose effect");
                         revolver.useOnce();
                         Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Revolver_revolversfx.ogg");
@@ -145,7 +151,8 @@ internal class Action_Revolver_Others : ItemAction
                 }
             }
         }
-        if (revolver.shotsLeft > 0) {
+        if (revolver.shotsLeft > 0)
+        {
             revolver.useOnce();
             Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Revolver_revolversfx.ogg");
         }else
@@ -194,5 +201,12 @@ internal class Action_Revolver_Others : ItemAction
                 Character.localCharacter.refs.items.SpawnItemInHand(itemToSpawnName2);
             }
         }
-    }  
+    }
+
+
+    [PunRPC]
+    private void ToggleOpenOthersRPC()
+    {
+        anim.SetTrigger("ShowFlag");
+    }
 }

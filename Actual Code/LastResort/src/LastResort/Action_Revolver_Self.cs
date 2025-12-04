@@ -18,6 +18,7 @@ public class Action_Revolver_Self : ItemAction
 
     public Revolver revolver;
 
+    public Animator anim;
 
     public static Dictionary<BiomeType, List<SpawnPool>> BiomeSpawnPools = new Dictionary<BiomeType, List<SpawnPool>> {
             {BiomeType.Shore,
@@ -79,6 +80,7 @@ public class Action_Revolver_Self : ItemAction
     public void Start()
     {
         revolver = base.GetComponent<Revolver>();
+        anim = revolver.GetComponent<Animator>();
     }
 
     public override void RunAction()
@@ -99,6 +101,7 @@ public class Action_Revolver_Self : ItemAction
             int chosenSpawnPoolIndex = UnityEngine.Random.Range(0, currentNumberOfSpawnPools); 
             SpawnPool chosenSpawnPool = currentSpawnPool[chosenSpawnPoolIndex];
             Item itemToSpawn = FindItemToSpawnNotRevolver(chosenSpawnPool);//LootData.GetRandomItem(chosenSpawnPool).GetComponent<Item>();
+            base.photonView.RPC("ToggleOpenSelfRPC", RpcTarget.All);
             Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Winner_revolversfx.ogg");
             Character.localCharacter.refs.items.SpawnItemInHand(itemToSpawn.name);
         }else if ((rouletteNumber == 2 || rouletteNumber == 4) && revolver.shotsLeft > 0) {
@@ -118,5 +121,12 @@ public class Action_Revolver_Self : ItemAction
             itemToReturn = LootData.GetRandomItem(poolToChooseFrom).GetComponent<Item>();
         }
         return itemToReturn;
+    }
+
+    [PunRPC]
+    private void ToggleOpenSelfRPC()
+    {
+
+        anim.SetTrigger("ShowFlag");
     }
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.7.0] - 2025-12-04
+
+- A silly little "Winner" flag comes out of the barrel now if you shoot at someone and they win!
+- First time doing anything with animation on this mod so it's not my best work, if it's too cruddy looking let me know and i'll see to it's banishment...
+
 ## [2.6.0] - 2025-12-03
 
 - Added the ability to modify the blowback of hitting/getting hit with a shot from the revolver in the config!
