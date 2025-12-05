@@ -101,7 +101,8 @@ public class Action_Revolver_Self : ItemAction
             int chosenSpawnPoolIndex = UnityEngine.Random.Range(0, currentNumberOfSpawnPools); 
             SpawnPool chosenSpawnPool = currentSpawnPool[chosenSpawnPoolIndex];
             Item itemToSpawn = FindItemToSpawnNotRevolver(chosenSpawnPool);//LootData.GetRandomItem(chosenSpawnPool).GetComponent<Item>();
-            base.photonView.RPC("ToggleOpenSelfRPC", RpcTarget.All);
+            revolver.TriggerFlag();
+            //base.photonView.RPC("ToggleOpenSelfRPC", RpcTarget.All);
             Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Winner_revolversfx.ogg");
             Character.localCharacter.refs.items.SpawnItemInHand(itemToSpawn.name);
         }else if ((rouletteNumber == 2 || rouletteNumber == 4) && revolver.shotsLeft > 0) {
@@ -123,10 +124,10 @@ public class Action_Revolver_Self : ItemAction
         return itemToReturn;
     }
 
-    [PunRPC]
+/*    [PunRPC]
     private void ToggleOpenSelfRPC()
     {
 
         anim.SetTrigger("ShowFlag");
-    }
+    }*/
 }

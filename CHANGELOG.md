@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.0] - 2025-12-05
+- SORRY FOR THE 5TH UPDATE IN A WEEK
+- I can't sit still so the revolver TURNS TOWARDS YOU NOW when you use it on yourself!!
+- My arms didn't want to animate it though so just....don't mind that thx
+- Additionally: Loot rarity for the revolver has been changed from common to uncommon! 
+- As always, for concerns/questions, please reach out to me in the discord!
+
 ## [2.7.0] - 2025-12-04
 
 - A silly little "Winner" flag comes out of the barrel now if you shoot at someone and they win!

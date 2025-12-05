@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using UnityEngine;
 using UnityEngine.TextCore.Text;
 
 namespace LastResort.Patches
@@ -15,10 +16,12 @@ namespace LastResort.Patches
             {
                 if (__instance.character.input.usePrimaryWasPressed && __instance.character.data.currentItem.CanUsePrimary())
                 {
+                   
                     __instance.character.data.currentItem.StartUsePrimary();
                 }
                 if (__instance.character.input.usePrimaryIsPressed && __instance.character.data.currentItem.CanUsePrimary())
                 {
+                    
                     __instance.character.data.currentItem.ContinueUsePrimary();
                 }
                 if (__instance.character.input.usePrimaryWasReleased || (__instance.character.data.currentItem.isUsingPrimary && !__instance.character.data.currentItem.CanUsePrimary()))
@@ -33,16 +36,33 @@ namespace LastResort.Patches
                 {
                     if (__instance.character.input.useSecondaryIsPressed)
                     {
+                        if (!__instance.character.input.usePrimaryIsPressed)
+                        {
+                            __instance.character.data.currentItem.GetComponent<Revolver>().SetTurnToSelf(true);
+                        }
+                        else {
+                            __instance.character.data.currentItem.GetComponent<Revolver>().SetTurnToSelf(false);
+                        }
+                       
                         __instance.character.data.currentItem.StartUseSecondary();
                     }
                     
                     if (__instance.character.input.useSecondaryIsPressed)
                     {
+                        if (!__instance.character.input.usePrimaryIsPressed)
+                        {
+                            __instance.character.data.currentItem.GetComponent<Revolver>().SetTurnToSelf(true);
+                        }
+                        else
+                        {
+                            __instance.character.data.currentItem.GetComponent<Revolver>().SetTurnToSelf(false);
+                        }
                         __instance.character.data.currentItem.ContinueUseSecondary();
                     }
                     
                     if (__instance.character.input.useSecondaryWasReleased )
                     {
+                        __instance.character.data.currentItem.GetComponent<Revolver>().SetTurnToSelf(false);
                         __instance.character.data.currentItem.CancelUseSecondary();
                     }
                 }

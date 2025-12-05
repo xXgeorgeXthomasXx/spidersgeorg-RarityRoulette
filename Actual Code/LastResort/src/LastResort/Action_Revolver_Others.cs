@@ -137,7 +137,8 @@ internal class Action_Revolver_Others : ItemAction
                         SpawnPool chosenSpawnPool = currentSpawnPool[chosenSpawnPoolIndex];
                         Item itemToSpawn = FindItemToSpawnNotRevolver(chosenSpawnPool);//LootData.GetRandomItem(chosenSpawnPool).GetComponent<Item>();
                         Character.localCharacter.photonView.RPC("PlaySoundGlobal", RpcTarget.All, currentPlayerId, "Au_Winner_revolversfx.ogg");
-                        base.photonView.RPC("ToggleOpenOthersRPC", RpcTarget.All);
+                        revolver.TriggerFlag();
+                        //base.photonView.RPC("ToggleOpenOthersRPC", RpcTarget.All);
                         RevolverImpactOthers(componentInParent, revolverSpawnTransform.position, raycastHit.point, itemToSpawn.name);
 
                     }
@@ -204,9 +205,9 @@ internal class Action_Revolver_Others : ItemAction
     }
 
 
-    [PunRPC]
+/*    [PunRPC]
     private void ToggleOpenOthersRPC()
     {
         anim.SetTrigger("ShowFlag");
-    }
+    }*/
 }

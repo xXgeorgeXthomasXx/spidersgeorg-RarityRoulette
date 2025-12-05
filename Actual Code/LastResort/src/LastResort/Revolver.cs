@@ -2,18 +2,23 @@
 using Photon.Pun;
 using System.Collections;
 using LastResort.Utils;
+using UnityEngine;
 public class Revolver : ItemComponent
 {
     //public static System.Random random = new System.Random();
     private static readonly ManualLogSource Logger = BepInEx.Logging.Logger.CreateLogSource("Revolver");
     public int shotsLeft;
     public const DataEntryKey Shots = (DataEntryKey)99;
-    
+    public Revolver revolver;
+
+    public Animator anim;
 
     public void Start()
     {
         StartCoroutine(InitShotsRoutine());
-        
+        revolver = base.GetComponent<Revolver>();
+        anim = revolver.GetComponent<Animator>();
+
     }
 
 
@@ -68,5 +73,34 @@ public class Revolver : ItemComponent
         }
         InitShots();
         
+    }
+
+
+    public void TriggerFlag()
+    {           
+        photonView.RPC("RPC_TriggerFlag", RpcTarget.All);  
+    }
+
+    [PunRPC]
+    public void RPC_TriggerFlag()
+    {
+        anim.SetTrigger("ShowFlag");
+    }
+    public void SetTurnToSelf(bool turnVal)
+    {
+        photonView.RPC("RPC_SetTurnToSelf", RpcTarget.All, turnVal);
+    }
+
+    [PunRPC]
+    public void RPC_SetTurnToSelf(bool turnVal)
+    {
+        anim.SetBool("TurnToSelf", turnVal);
+        if (turnVal == true)
+        {
+            anim.SetFloat("TurnFloat", 0.75f);
+        }
+        else {
+            anim.SetFloat("TurnFloat", -0.75f);
+        }
     }
 }
